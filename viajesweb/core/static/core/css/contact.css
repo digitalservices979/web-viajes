@@ -1,0 +1,45 @@
+@media screen and (max-width: 576px) and (min-width: 200px){
+  #buscador {
+    width: 200px;
+  }
+}
+
+body{
+	background-image: url(../img/city.jpg); 
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	color: white;
+	font-family: sans-serif;
+}
+
+.formulario{
+	background-image: url(../img/city.jpg); 
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background: rgba(0,0,0,.3);
+}
+
+a strong{
+	transition: 0.3s;
+}
+
+a strong:hover{
+	color: #007bff;
+}
+
+footer {
+  background: #061D25;
+  padding: 10px 0;
+  color: #E6E1E1;
+}
+
+footer i{
+	transition: all .4s ease;
+}
+
+footer i:hover{
+	color: white;
+}
+

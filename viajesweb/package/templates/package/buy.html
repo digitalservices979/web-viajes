@@ -1,0 +1,91 @@
+{% extends "core/base_layout.html" %}
+{%load static%}
+{% block cascada %}
+<link rel="stylesheet" type="text/css" href="{% static 'core/css/package.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'core/css/css/bootstrap-datepicker.css' %}">
+{% endblock %}
+{% block title %}Comprar{% endblock %}
+{% block content %}
+	<!--Empieza el cuerpo de la seccion-->
+	<br><br>
+	<div class="container px-5 my-5">
+		<div class="row">
+			<div class="col-sm-12 col-md-6">
+				<img src="{{object.imagen.url}}" class="rounded img-fluid"><br><br>
+				<p class="h6">{{object.descripcion}}</p><br>	
+				<div class="col-12">
+					<p class="h4 float-left">Precio</p> <p class="h4 float-right"> S/ {{object.precio}}</p>
+				</div>	
+			</div>
+			<div class="col-sm-12 col-md-6">
+				<div class="row d-block d-md-none"><br></div>
+				<form method="POST" action="pasajero">
+					{% csrf_token %}					
+				  <div class="form-row">
+				    <div class="form-group col-md-6">
+				      <label for="inputEmail4">Nombres</label>
+				      <input type="text" class="form-control" id="inputEmail4" name="nombre" placeholder="Nombres..." required>
+				    </div>
+				    <div class="form-group col-md-6">
+				      <label for="inputPassword4">Apellidos</label>
+				      <input type="text" name="apellido" class="form-control" id="inputPassword4" placeholder="Apellidos..." required>
+				    </div>
+				  </div>
+				  <div class="row">
+				  	<div class="form-group col-md-5">
+					    <label for="inputState">Ciudad</label>
+					    <select id="inputState" class="form-control" name="ciudad" required>
+					       <option selected>Lima</option>
+					       <option>Chiclayo</option>
+					       <option>Piura</option>
+					       <option>Tacna</option>
+					    </select>
+				  	</div>
+				  	<div class="col-md-2"></div>
+				  	<div class="form-group col-md-5">
+				  		<label for="inputPassword4">Teléfono</label>
+				      	<input type="text" class="form-control" name="telefono" id="inputPassword4" placeholder="Teléfono..." onkeypress="return soloNumeros(event)" required>
+				  	</div>
+				  </div>				 
+				  <div class="form-group">
+				    <label for="inputAddress2">Dirección</label>
+				    <input type="text" class="form-control" name="direccion" id="inputAddress2" placeholder="Dirección..." required>
+				  </div>
+				  <div class="form-row">
+				    <div class="form-group col-md-6">
+				      <label for="inputCity">N° de documento</label>
+				      <input type="text" class="form-control" id="inputCity" name="documento" onkeypress="return soloNumeros(event)" required>
+				    </div>				    
+				    <div class="form-group col-md-6">
+				      <label for="inputZip">N° de asientos</label>
+				      <input type="number" name="asientos" class="form-control col-3 col-md-6 col-lg-3" min="1" max="40" step="1" value="1">
+				    </div>
+				  </div>
+				  <div class="form-row">
+				  	<div class="form-group col-6">
+				  		<label for="inputDate">Fecha</label>
+				  		<div class="input-group date">
+ 							 <input type="text" required class="form-control" name="fecha">&nbsp;
+ 							 <span class="input-group-addon">
+ 							 	<i class="fa fa-calendar fa-2x"></i>
+ 							 </span>
+						</div>				  		
+				  	</div>
+				  </div>
+				  <button type="submit" class="btn btn-info btn-lg btn-block">Agregar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block js%}
+<script type="text/javascript" src="{% static 'core/js/validarNum.js' %}"></script>
+	<script type="text/javascript" src="{% static 'core/js/bootstrap-datepicker.min.js' %}"></script>
+	<script type="text/javascript">
+		$('.date').datepicker({
+	    format: "dd/mm/yy",
+	    autoclose: true,
+
+	});
+	</script>
+{% endblock %}

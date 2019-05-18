@@ -1,0 +1,64 @@
+	{% extends "core/base_layout.html" %}
+	{% load static %}
+	{% load filer_car %}
+	{% block cascada %}
+	<link rel="stylesheet" type="text/css" href="{% static 'core/css/general.css' %}">
+	{% endblock %}
+	{% block title %}Carro{% endblock%}
+	<!--Empieza el cuerpo de la seccion-->
+	{% block content %}
+	<br><br>
+	<div class="container">
+		<p class="h6 my-5 p-3 bg-info text-white">Mis compras</p><br>
+		<table class="table">
+			<thead>
+			    <tr>
+			      <th scope="col">DNI</th>
+			      <th scope="col">Lugar</th>
+			      <th scope="col">Fecha</th>
+			      <th scope="col">Asientos</th>
+			      <th scope="col">Precio</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	{% for pas in object_list %}
+			  		<tr>
+				      <td>{{pas.pasajero.documento}}</td>
+				      <td>{{pas.lugar.lugar}}</td>
+				      <td>{{pas.pasajero.fecha}}</td>
+				      <td>{{pas.pasajero.asientos}}</td>
+				      <td>S/ {{pas.lugar.precio|precio:pas.pasajero.asientos}}</td>
+				      <td><a href="#"><button type="button" class="close" aria_label="Close"><span aria-hidden="true">&times;</span></button></a></td>
+				    </tr>
+				    <!--{% if forloop.last %}
+					    <tr>
+					    	<td></td>
+					    	<td></td>
+					    	<td></td>
+					    	<th scope="col">Total</th>
+					    	<td>S/ {{object_list|total}}</td>
+					    </tr>
+					{% endif %}-->
+			  	{% endfor %}
+			  	<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<th scope="col">Total</th>
+					<td>S/ {{object_list|total}}</td>
+				</tr>    					   			    
+			  </tbody>			
+		</table>
+	</div>
+	<div class="container-fluid px-5 h-50 mb-2">
+		<div class="row">
+			<div class="col-6 col-md-4 col-lg-3">
+				<a href="{% url 'packages' %}" class="float-left btn btn-dark col-12">Seguir comprando</a>
+			</div>
+			<div class="col-md-4 col-lg-6 d-none d-md-block"></div>
+			<div class="col-6 col-md-4 col-lg-3">
+				<button class="float-right btn btn-dark col-12">Procesar Comprar</button>
+			</div>
+		</div>
+	</div>
+	{% endblock %}	

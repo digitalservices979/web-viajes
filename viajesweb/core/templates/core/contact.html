@@ -1,0 +1,99 @@
+{% extends "core/base_layout.html" %}
+{% load static %}
+{%block cascada%}
+<link rel="stylesheet" type="text/css" href="{% static 'core/css/contact.css' %}">
+{% endblock %}
+{% block title %}Contact{% endblock%}
+
+	<!--Empieza el cuerpo de la seccion-->
+
+	{% block content%}
+	<br><br><br>
+	<div class="container-fluid my-5">
+		<div class="row">
+			<div class="col-12 display-3">
+				Contáctanos
+			</div>
+			<div class="col-12">
+				<p class="font-italic">Cuéntanos tus dudas y sugerencias </p>
+			</div>
+		</div>
+	</div>
+	<div class="container my-5 py-4 w-50 formulario">
+		<form action="#">
+			<div class="form-group row">
+			    <label for="inputEmail3" class="col-sm-2 col-form-label">Nombres</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" id="inputEmail3" placeholder="Nombres">
+			    </div>
+		  </div>
+		  <div class="form-group row">
+			    <label for="inputEmail3" class="col-sm-2 col-form-label">Apellidos</label>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" id="inputEmail3" placeholder="Apellidos">
+			    </div>
+		  </div>
+			<div class="form-group row">
+			    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+			    <div class="col-sm-10">
+			      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+			    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label for="inputPassword3" class="col-sm-2 col-form-label">Teléfono</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" id="inputPassword3" placeholder="Teléfono" onkeypress="return soloNumeros(event)">
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label">Comentario</label>
+		    <div class="col-sm-10">
+		      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+		    </div>
+		  </div>
+
+		  <fieldset class="form-group">
+		    <div class="row">
+		      <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+		      <div class="col-sm-10">
+		        <div class="form-check">
+		          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+		          <label class="form-check-label" for="gridRadios1">
+		            First radio
+		          </label>
+		        </div>
+		        <div class="form-check">
+		          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+		          <label class="form-check-label" for="gridRadios2">
+		            Second radio
+		          </label>
+		        </div>
+		        <div class="form-check disabled">
+		          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+		          <label class="form-check-label" for="gridRadios3">
+		            Third disabled radio
+		          </label>
+		        </div>
+		      </div>
+		    </div>
+		  </fieldset>
+		  <div class="form-group row">
+		    <div class="col-sm-2">Checkbox</div>
+		    <div class="col-sm-10">
+		      <div class="form-check">
+		        <input class="form-check-input" type="checkbox" id="gridCheck1">
+		        <label class="form-check-label" for="gridCheck1">
+		          Example checkbox
+		        </label>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <div class="col-sm-12">
+		      <button type="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
+		    </div>
+		  </div>
+		</form>
+	</div>
+	<script type="text/javascript" src="{% static 'core/js/validarNum.js' %}"></script>
+	{% endblock %}

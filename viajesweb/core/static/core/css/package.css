@@ -1,0 +1,41 @@
+@media screen and (max-width: 576px) and (min-width: 200px){
+  #buscador {
+    width: 200px;
+  }
+}
+
+a strong{
+	transition: 0.3s;
+}
+
+a strong:hover{
+	color: #007bff;
+}
+
+footer {
+  background: #061D25;
+  padding: 10px 0;
+  color: #E6E1E1;
+}
+
+footer i{
+	transition: all .4s ease;
+}
+
+footer i:hover{
+	color: white;
+}
+
+.dropdown-item:hover{
+	background-color: #17a2b8;
+	color:#FFF;
+}
+
+.date i{
+	transition: all .4s ease;
+	cursor: pointer;
+}
+
+.date i:hover{
+	color: #695E5E;
+}
